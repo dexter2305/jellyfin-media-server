@@ -1,0 +1,21 @@
+
+namespace: lab
+
+commonLabels:
+  app: jellyfin
+
+# namePrefix: k-
+
+# nameSuffix: -v1
+
+generatorOptions:
+  disableNameSuffixHash: false
+  labels:
+    type: generated
+
+resources:
+- pvc.yaml
+- deployment.yaml
+- service.yaml
+- ingress.yaml
+
