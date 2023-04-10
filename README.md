@@ -14,3 +14,6 @@ kubectl kustomize .
 kubectl apply -k .
 ```
 Kubernetes namespace used is `lab`. 
+
+### Todo
+- `deployment.yaml` has hardcoded directory paths. Fix to make deployment independent of host paths.
