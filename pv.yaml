@@ -1,0 +1,45 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: config
+  labels:
+    storage: config
+spec:
+  capacity:
+    storage: 10Mi
+  accessModes:
+  - ReadWriteMany
+  local:
+    path: /home/innsh/dev/temp/jellyfin/persistent-volumes/pv1
+  persistentVolumeReclaimPolicy: Retain
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+            - sag-8v582x2-u
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: cache
+  labels:
+    storage: cache
+spec:
+  accessModes:
+  - ReadWriteMany
+  local:
+    path: /home/innsh/dev/temp/jellyfin/persistent-volumes/pv2
+  capacity:
+    storage: 5Mi
+  persistentVolumeReclaimPolicy: Retain
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+            - sag-8v582x2-u

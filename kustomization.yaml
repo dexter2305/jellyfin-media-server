@@ -14,10 +14,9 @@ generatorOptions:
     type: generated
 
 resources:
-# - pv.yaml
-# - pvc.yaml
+- pv.yaml
+- pvc.yaml
 - deployment.yaml
 - service.yaml
 - ingress.yaml
-- hpa.yaml
 

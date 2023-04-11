@@ -10,15 +10,18 @@ spec:
         hostPath: 
           path: /home/innsh/dev/temp/media/
       - name: jellyfin-cache-vol
-        hostPath:
-          path: /home/innsh/dev/temp/jellyfin/cache
+        persistentVolumeClaim:
+          claimName: cache
       - name: jellyfin-config-vol
-        hostPath:
-          path: /home/innsh/dev/temp/jellyfin/config
+        persistentVolumeClaim:
+          claimName: config
       containers:
       - name: jellyfin
         image: jellyfin/jellyfin
         ports: 
+          - name: liveness-port
+            containerPort: 8096
+            protocol: TCP
           - containerPort: 8096
             protocol: TCP
         volumeMounts:
@@ -38,6 +41,6 @@ spec:
         livenessProbe:
           httpGet:
             path: /health
-            port: 8096
-          initialDelaySeconds: 3
+            port: liveness-port
+          initialDelaySeconds: 10
           periodSeconds: 10
