@@ -1,5 +1,5 @@
 
-namespace: lab
+namespace: home
 
 commonLabels:
   app: jellyfin

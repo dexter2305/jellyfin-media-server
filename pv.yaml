@@ -19,7 +19,7 @@ spec:
         - key: kubernetes.io/hostname
           operator: In
           values:
-            - sag-8v582x2-u
+          - sag-8v582x2-u
 ---
 apiVersion: v1
 kind: PersistentVolume
